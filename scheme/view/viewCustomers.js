@@ -1,39 +1,20 @@
 'use strict';
 
 module.exports = {
-	name: 'viewCustomers',
-	template: 'viewCustomers.tpl',
-	config: function( it ) {
-		var customers;
-		var cfg = {
-			sDom: "<'row'<'span6'l><'span6'<'#buttonFind'>>r>t<'row'<'span6'i><'span6'p>>",
-			sPaginationType: 'bootstrap',
-			bProcessing: true,
-			bServerSide: false,
-			aLengthMenu: [10, 20],
-			aoColumns: []
-		};
-
-		if ( it.access.read && it.access.read.customers ) { // check existance
-			customers = it.access.read.customers;
-			if ( customers.indexOf( 'name' ) !== -1 ) {
-				cfg.aoColumns.push( {"mData": "name", "sTitle": "Название компании", "sType": "string"} );
-			}
-			if ( customers.indexOf( 'inn' ) !== -1 ) {
-				cfg.aoColumns.push( {"mData": "inn", "sTitle": "ИНН", "sType": "numeric"} );
-			}
-			if ( customers.indexOf( 'managerName' ) !== -1 ) {
-				cfg.aoColumns.push( {"mData": "managerName", "sTitle": "Менеджер", "sType": "string", bSearchable: false} );
-			}
-			if ( customers.indexOf( 'tsCreate' ) !== -1 ) {
-				cfg.aoColumns.push( {"mData": "tsCreate", "sTitle": "Дата регистрации", "sType": "date", "dateSearch": "01-01-2010"} );
-			}
-		}
-
-		return cfg;
-	},
-
-	view: {
-		customers: {}
-	}
+    name: 'viewCustomers',
+    template: 'viewCustomers.tpl',
+    config: {
+            sDom: "<'row'<'span6'l><'span6'<'#buttonFind'>>r>t<'row'<'span6'i><'span6'p>>",
+            sPaginationType: 'bootstrap',
+            bProcessing: true,
+            bServerSide: false,
+            test: {test_join:0, test_join2:0},
+            aLengthMenu: [10, 20],
+            aoColumns: [
+                { _vid: '1', _flexo: {type: 'read', scheme: ['contacts', 'fio']}, mData: "fio", sTitle: "ФИО", sType: "string"},
+                { _vid: '2', _flexo: {type: 'read', scheme:['contacts', 'position']}, mData: "position", sTitle: "Позиция", sType: "string"},
+                { _vid: '3', _flexo: {type: 'read', scheme:['contacts', 'customers_name']},  mData: "customers_name", sTitle: "Компания", sType: "string", bSearchable: false},
+                { _vid: '4', _flexo: {type: 'read', scheme: ['contacts', 'tsUpdate']}, mData: "tsUpdate", sTitle: "Дата изменения", sType: "date", dateSearch: "01-01-2010"}
+            ]
+    }
 };
