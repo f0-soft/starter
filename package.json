@@ -1,6 +1,6 @@
 {
     "name": "starter",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
 
     "main": "lib/index.js",
@@ -9,6 +9,8 @@
         "underscore": "",
         "async": "",
 		"f0.rabbit": "git+ssh://git@github.com:f0-soft/rabbit.git#v0.1.1",
-        "f0.flexo": "git+ssh://git@github.com:f0-soft/flexo.git#v0.2.0-pre1"
+        "f0.flexo": "git+ssh://git@github.com:f0-soft/flexo.git#pre",
+        "f0.view": "git+ssh://git@github.com:f0-soft/view.git#dev",
+        "f0.controller": "git+ssh://git@github.com:f0-soft/controller.git#dev"
     }
 }
