@@ -1,0 +1,37 @@
+{
+	"name": "f0.starter",
+	"version": "0.3.0-1",
+	"description": "System components initializer",
+	"license": "BSD",
+	"author": {
+		"name": "Vitaliy glukki Meschaninov",
+		"email": "vm@f0-soft.ru",
+		"url": "http://f0-soft.ru"
+	},
+
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/f0-soft/starter.git"
+	},
+	"bugs": {
+		"url": "https://github.com/f0-soft/starter/issues"
+	},
+
+	"main": "index.js",
+	"scripts": {
+		"test": "nodeunit test"
+	},
+
+	"dependencies": {
+		"async": "",
+		"f0.argstype": "git+ssh://git@github.com:f0-soft/argstype.git"
+	},
+	"devDependencies": {
+		"nodeunit": "",
+		"f0.rabbit": "git+ssh://git@github.com:f0-soft/rabbit.git",
+		"f0.flexo": "git+ssh://git@github.com:f0-soft/flexo.git",
+		"f0.view": "git+ssh://git@github.com:f0-soft/view.git",
+		"f0.controller": "git+ssh://git@github.com:f0-soft/controller.git"
+	}
+}
