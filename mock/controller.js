@@ -32,7 +32,7 @@ checks.init = argstype.getChecker( myErr, [
 				'*', false, 'o', [ // any vid
 					['flexo', true, 'a', [
 						['flexoSchemeName', true, 's'],
-						['fieldName', true, 's']
+						['fieldName', false, 's']
 					]],
 					['type', true, 's']
 				]
