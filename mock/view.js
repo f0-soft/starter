@@ -54,7 +54,7 @@ checks.init = argstype.getChecker( myErr, [
 				]]
 			]
 		]],
-		['links', true, 'o', [
+		['paths', true, 'o', [
 			'*', false, 'a', 'a'
 		]],
 		['templatePath', true, 's'],

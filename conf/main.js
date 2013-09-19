@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-	rabbit: undefined,
-	flexo: undefined,
-	view: undefined,
-	controller: undefined,
+	rabbit: require( 'f0.rabbit' ),
+	flexo: require( 'f0.flexo' ),
+	view: require( 'f0.view' ),
+	controller: require( 'f0.controller' ),
 
 	flexo_path: __dirname + '/../scheme/flexo',
 	link_path: __dirname + '/../scheme/link',

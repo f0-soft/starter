@@ -5,17 +5,23 @@
 var mock;
 mock = require( '../mock' );
 
+var __ = require( 'underscore' );
 
 
 var starter = require( '../' );
-var config = require( '../conf/main' );
 
 
 
-config.rabbit = mock ? mock.rabbit : require( 'f0.rabbit' );
-config.flexo = mock ? mock.flexo : require( 'f0.flexo' );
-config.view = mock ? mock.view : require( 'f0.view' );
-config.controller = mock ? mock.controller : require( 'f0.controller' );
+// clone default config
+var config = __.extend( {}, starter.config );
+
+// use mock modules if required
+if ( mock ) { config = __.extend( config, mock ); }
+
+// user config
+config = __.extend( config, {
+	// user config params
+} );
 
 
 
