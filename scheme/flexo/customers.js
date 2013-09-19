@@ -1,3 +1,5 @@
+'use strict';
+
 // схема заказчик
 
 module.exports = {
@@ -7,4 +9,4 @@ module.exports = {
         name: { type: 'string1' },
         m_id: {type: 'string' }
     }
-}
+};
