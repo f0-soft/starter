@@ -44,12 +44,7 @@ checks.init = argstype.getChecker( myErr, [
 						['flexo', true, 's'], // название схемы flexo
 						['property', true, 's'], // название поля, к которому осуществляется доступ
 						['field', false, 's'], // название поля, по которому осуществляется связь
-						['path', false, 'a', [ // путь или пустой массив
-							'*', false, 'a', [
-								['scheme', true, 's'],
-								['field', true, 's']
-							]
-						]]
+						['path', false, 's']
 					]
 				]]
 			]
