@@ -7,6 +7,7 @@ var argstype = require( 'f0.argstype' );
 var INITIALIZED;
 var container = {
 	find: function() {},
+	aggregate: function() {},
 	insert: function() {},
 	modify: function() {},
 	delete: function() {}
@@ -23,6 +24,7 @@ checks.init = argstype.getChecker( myErr, [
 	['options', true, 'o', [
 		['storage', true, 'o', [ // функции работы с хранилищем
 			['find', true, 'f'],
+			['aggregate', true, 'f'],
 			['insert', true, 'f'],
 			['modify', true, 'f'],
 			['delete', true, 'f']

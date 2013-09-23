@@ -24,6 +24,7 @@ checks.init = argstype.getChecker( myErr, [
 	['options', true, 'o', [
 		['provider', true, 'o', [
 			['find', true, 'f'],
+			['aggregate', true, 'f'],
 			['insert', true, 'f'],
 			['modify', true, 'f'],
 			['delete', true, 'f']
@@ -45,6 +46,13 @@ checks.init = argstype.getChecker( myErr, [
 						['property', true, 's'], // название поля, к которому осуществляется доступ
 						['field', false, 's'], // название поля, по которому осуществляется связь
 						['path', false, 's']
+					]
+				]],
+				['aggr', true, 'o', [
+					'*', false, 'o', [
+						['name', true, 's'],
+						['group', false, 'o'],
+						['selector', false, 's']
 					]
 				]]
 			]

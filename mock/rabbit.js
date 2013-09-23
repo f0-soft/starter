@@ -59,6 +59,7 @@ function init( config, callback ) {
 
 module.exports = {
 	find: function() {},
+	aggregate: function() {},
 	delete: function() {},
 	modify: function() {},
 	insert: function() {},
