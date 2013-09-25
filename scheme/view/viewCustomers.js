@@ -17,5 +17,6 @@ module.exports = {
 			{ _vid: '4', _flexo: {type: 'read', scheme: ['contacts', 'tsUpdate']}, mData: "tsUpdate", sTitle: "Дата изменения", sType: "date", dateSearch: "01-01-2010"}
 		],
 		test_test: { _vid: '5', _flexo: {type: 'delete', scheme: ['contacts']}}
-	}
+	},
+	root: 'contacts'
 };
