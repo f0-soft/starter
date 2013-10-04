@@ -39,6 +39,14 @@ checks.init = argstype.getChecker( myErr, [
 		]],
 		['gHintScore', true, 'o', [
 			'*', false, 'a'
+		]],
+		['gBackRef', true, 'o', [
+			'*', false, 'a', [
+				'*', true, 'a', [
+					['collection', true, 's'],
+					['field', true, 's']
+				]
+			]
 		]]
 	]],
 	['callback', true, 'f']
