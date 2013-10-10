@@ -1,6 +1,6 @@
 {
 	"name": "f0.starter",
-	"version": "0.3.11",
+	"version": "0.3.12",
 	"description": "System components initializer",
 	"license": "BSD",
 	"author": {
@@ -20,7 +20,7 @@
 
 	"main": "index.js",
 	"scripts": {
-		"test": "nodeunit test"
+		"test": "./node_modules/nodeunit/bin/nodeunit test/index.js"
 	},
 
 	"dependencies": {
