@@ -20,5 +20,6 @@ module.exports = {
 
 	rabbit_hint: {},
 	rabbit_hint_score: {},
-	rabbit_presum: {}
+	rabbit_presum: {},
+	collection_alias: {}
 };

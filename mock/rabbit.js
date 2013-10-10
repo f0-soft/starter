@@ -47,6 +47,14 @@ checks.init = argstype.getChecker( myErr, [
 					['field', true, 's']
 				]
 			]
+		]],
+		['gPrefixCol', true, 'o', [
+			['p2c', true, 'o', [
+				'*', false, 's'
+			]],
+			['c2p', true, 'o', [
+				'*', false, 's'
+			]]
 		]]
 	]],
 	['callback', true, 'f']

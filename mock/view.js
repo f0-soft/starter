@@ -29,6 +29,14 @@ checks.init = argstype.getChecker( myErr, [
 			['modify', true, 'f'],
 			['delete', true, 'f']
 		]],
+		['providerAlias', true, 'o', [
+			['p2c', true, 'o', [
+				'*', false, 's'
+			]],
+			['c2p', true, 'o', [
+				'*', false, 's'
+			]]
+		]],
 		['views', true, 'o', [
 			'*', false, 'o', [
 				['view', true, 'o', [
