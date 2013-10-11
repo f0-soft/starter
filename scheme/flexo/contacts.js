@@ -12,7 +12,7 @@ module.exports = {
 		fax: {type: 'string' },  // факс
 		email: {type: 'string' }, // email
 		note: {type: 'string' }, // примечание
-		c_id: {type: 'string', from: 'customers' }
+		c_id: {type: 'id', from: 'customers' }
 	},
 
 	join: {
