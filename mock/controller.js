@@ -57,9 +57,6 @@ checks.init = argstype.getChecker( myErr, [
 					]
 				]]
 			]
-		]],
-		['configRoleToCompanyView', true, 'o', [
-			'*', false, 's'
 		]]
 	]],
 	['callback', true, 'f']
