@@ -46,6 +46,23 @@ checks.init = argstype.getChecker( myErr, [
 					['root', false, 's'],
 					['join', false, 'o', [
 						'*', false, 'o'
+					]],
+					['aggregate', false, 'o', [
+						'*', false, 'o', [
+							['flexo', true, 's'],
+							['link', true, 'o']
+						]
+					]],
+					['access', false, 'o', [
+						['find', false, 'o', [
+							'*', false, 'o'
+						]],
+						['insert', false, 'o', [
+							'*', false, 'o', [
+								['data', true, 'o'],
+								['lazy', false, 'b']
+							]
+						]]
 					]]
 				]],
 				['vids', true, 'o', [
