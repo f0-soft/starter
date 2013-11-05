@@ -15,32 +15,26 @@ function myErr( text ) {
 
 checks.init = argstype.getChecker( myErr, [
 	['config', true, 'o', [
-		['mongo', false, 'o', [
+		['mongo', false, 'o', [ // конфиг mongo
 			['host', false, 's'],
 			['port', false, 'n'],
 			['options', false, 'o'],
 			['dbname', false, 's']
 		]],
-		['redis', false, 'o', [
+		['redis', false, 'o', [ // конфиг редис
 			['host', false, 's'],
 			['port', false, 'n'],
 			['options', false, 'o']
 		]],
-		['gPath', false, 'o', [
-			'*', false, 'a', 'a'
+		['gPrefixCol', true, 'o', [ // справочник префиксов путей
+			['p2c', true, 'o', [
+				'*', false, 's'
+			]],
+			['c2p', true, 'o', [
+				'*', false, 's'
+			]]
 		]],
-		['gFieldDepPath', false, 'o', [
-			'*', false, 'o', [
-				'*', false, 'a'
-			]
-		]],
-		['gHint', true, 'o', [
-			'*', false, 'a'
-		]],
-		['gHintScore', true, 'o', [
-			'*', false, 'a'
-		]],
-		['gBackRef', true, 'o', [
+		['gPath', false, 'o', [ // справочник всех путей
 			'*', false, 'a', [
 				'*', true, 'a', [
 					['collection', true, 's'],
@@ -48,13 +42,35 @@ checks.init = argstype.getChecker( myErr, [
 				]
 			]
 		]],
-		['gPrefixCol', true, 'o', [
-			['p2c', true, 'o', [
-				'*', false, 's'
-			]],
-			['c2p', true, 'o', [
-				'*', false, 's'
-			]]
+		['gFieldDepPath', false, 'o', [ // справочник связи названия поля и пути
+			'*', false, 'o', [
+				'*', false, 'a'
+			]
+		]],
+		['gBackRef', true, 'o', [ // справочник колекций связанных с документов (для проверки перед удалением)
+			'*', false, 'a', [
+				'*', true, 'a', [
+					['collection', true, 's'],
+					['field', true, 's']
+				]
+			]
+		]],
+		['gScore', true, 'o', [ // справочник колекций где есть вес
+			'*', false, 'o', [ // схема
+				'*', true, 'n'
+			]
+		]],
+		['gScoreJoin', true, 'o', [ // справочник колекций в которых должен быть вес из внешней коллекции
+			'*', false, 'o', [ // схема
+				'*', true, 'o', [ // поле
+					'*', true, 'n' // внешняя схема
+				]
+			]
+		]],
+		['gArrayFields', true, 'o', [ // справочник с полей, которые являются массивами
+			'*', false, 'o', [ // схема
+				'*', true, 'n' // поле
+			]
 		]]
 	]],
 	['callback', true, 'f']

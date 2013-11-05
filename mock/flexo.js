@@ -20,6 +20,28 @@ function myErr( text ) {
 
 
 
+var TYPES = {
+	str: true,
+	words: true,
+	int: true,
+	float: true,
+	bool: true,
+	array: true,
+	id: true,
+	ids: true,
+	idpath: true,
+	numeric: true,
+	phone: true
+};
+var ARRAYS = {
+	words: true,
+	array: true,
+	ids: true,
+	idpath: true
+};
+
+
+
 checks.init = argstype.getChecker( myErr, [
 	['options', true, 'o', [
 		['storage', true, 'o', [ // функции работы с хранилищем
@@ -90,5 +112,7 @@ function init( options, callback ) {
 
 module.exports = {
 	init: init,
-	checks: checks
+	checks: checks,
+	types: TYPES,
+	arrays: ARRAYS
 };

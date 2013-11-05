@@ -6,13 +6,13 @@ module.exports = {
 	name: 'contacts',
 
 	root: {
-		fio: { type: 'string' }, // ФИО
-		position: { type: 'string' }, // должность
-		phone: {type: 'string'}, // телефон
-		fax: {type: 'string' },  // факс
-		email: {type: 'string' }, // email
-		note: {type: 'string' }, // примечание
-		c_id: {type: 'id', from: 'customers' }
+		fio: { type: 'str' }, // ФИО
+		position: { type: 'str' }, // должность
+		phone: {type: 'str'}, // телефон
+		fax: {type: 'str', weight: true },  // факс
+		email: {type: 'str' }, // email
+		note: {type: 'str' }, // примечание
+		c_id: {type: 'id', from: 'customers', includeWeight: ['customers'] }
 	},
 
 	join: {

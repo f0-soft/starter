@@ -6,7 +6,7 @@ module.exports = {
     name: 'customers',
 
     root: {
-        name: { type: 'string1' },
-        m_id: {type: 'string' }
+        name: { type: 'str' },
+        m_id: {type: 'str' }
     }
 };
