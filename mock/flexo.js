@@ -57,8 +57,7 @@ checks.init = argstype.getChecker( myErr, [
 					['name', true, 's'],
 					['root', true, 'o', [
 						'*', true, 'o', [
-							['type', false, 's'],
-							['of', false, 's'],
+							['type', true, 's'],
 							['from', false, 's'],
 							['link', false, 's']
 						]
