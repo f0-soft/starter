@@ -3,10 +3,10 @@
 // схема заказчик
 
 module.exports = {
-    name: 'customers',
+	name: 'customers',
 
-    root: {
-        name: { type: 'str' },
-        m_id: {type: 'str' }
-    }
+	root: {
+		name: { type: 'str', weight: true },
+		m_id: { type: 'str' }
+	}
 };

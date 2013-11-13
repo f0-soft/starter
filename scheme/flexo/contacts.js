@@ -9,7 +9,7 @@ module.exports = {
 		fio: { type: 'str' }, // ФИО
 		position: { type: 'str' }, // должность
 		phone: {type: 'str'}, // телефон
-		fax: {type: 'str', weight: true },  // факс
+		fax: {type: 'str', weight: true }, // факс
 		email: {type: 'str' }, // email
 		note: {type: 'str' }, // примечание
 		c_id: {type: 'id', from: 'customers', includeWeight: ['customers'] }

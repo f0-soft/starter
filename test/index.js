@@ -3,34 +3,42 @@
 
 
 var mock;
-mock = require( '../mock' );
+mock = true;
+
+
 
 var __ = require( 'underscore' );
-
-
 var starter = require( '../' );
 
 
 
-// clone default config
-var config = __.extend( {}, starter.config );
-
-// use mock modules if required
-if ( mock ) { config = __.extend( config, mock ); }
-
-// user config
-config = __.extend( config, {
-	// user config params
-} );
+var config = __.extend(
+	{},
+	starter.config,
+	( mock ? starter.mock : {} ), // подключение имитации модулей вместо настоящих (подключаемых по умолчанию)
+	{ // конфиг пользвателя
+		flexo_path: __dirname + '/../scheme/flexo',
+		link_path: __dirname + '/../scheme/link',
+		view_path: __dirname + '/../scheme/view',
+		template_path: __dirname + '/../view/template'
+	}
+);
 
 
 
 exports.testInit = function( t ) {
-	t.expect( 2 );
-	starter.init( config, function( err, module ) {
+	t.expect( 8 );
+	starter.init( config, function( err, module, all ) {
 		t.ifError( err );
 
 		t.ok( module );
+		t.ok( all );
+		t.doesNotThrow( function() {
+			t.ok( all.rabbit );
+			t.ok( all.flexo );
+			t.ok( all.view );
+			t.ok( all.controller );
+		} );
 
 		t.done();
 	} );
