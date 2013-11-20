@@ -8,7 +8,7 @@ var INITIALIZED;
 var checks = {};
 
 function myErr( text ) {
-	return ( new Error( 'f0.rabbit: ' + text ));
+	return ( new Error( 'f0.starter.mock.rabbit: ' + text ));
 }
 
 

@@ -15,7 +15,7 @@ var container = {
 var checks = {};
 
 function myErr( text ) {
-	return (new Error( 'f0.view: ' + text ));
+	return (new Error( 'f0.starter.mock.view: ' + text ));
 }
 
 

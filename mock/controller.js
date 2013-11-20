@@ -8,7 +8,7 @@ var INITIALIZED;
 var checks = {};
 
 function myErr( text ) {
-	return ( new Error( 'f0.controller: ' + text ));
+	return ( new Error( 'f0.starter.mock.controller: ' + text ));
 }
 
 
@@ -30,11 +30,11 @@ checks.init = argstype.getChecker( myErr, [
 		['viewConfig', true, 'o', [
 			'*', false, 'o', [ // any view
 				'*', false, 'o', [ // any vid
-					['flexo', true, 'a', [
+					['flexo', false, 'a', [
 						['flexoSchemeName', true, 's'],
 						['fieldName', false, 's']
 					]],
-					['type', true, 's']
+					['type', false, 's']
 				]
 			]
 		]],
