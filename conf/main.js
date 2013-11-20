@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+	'rabbit-server': require('f0.rabbit-server'),
 	rabbit: require( 'f0.rabbit' ),
 	flexo: require( 'f0.flexo' ),
 	view: require( 'f0.view' ),

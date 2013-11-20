@@ -1,6 +1,6 @@
 {
 	"name": "f0.starter",
-	"version": "0.3.20",
+	"version": "0.3.21",
 	"description": "System components initializer",
 	"license": "BSD",
 	"author": {
@@ -26,6 +26,7 @@
 	"dependencies": {
 		"async": "",
 		"f0.argstype": "git+ssh://git@github.com:f0-soft/argstype.git",
+		"f0.rabbit-server": "git+ssh://git@github.com:f0-soft/rabbit-server.git",
 		"f0.rabbit": "git+ssh://git@github.com:f0-soft/rabbit.git",
 		"f0.flexo": "git+ssh://git@github.com:f0-soft/flexo.git",
 		"f0.view": "git+ssh://git@github.com:f0-soft/view.git",

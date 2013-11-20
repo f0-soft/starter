@@ -16,7 +16,12 @@ var config = __.extend(
 	{},
 	starter.config,
 	( mock ? starter.mock : {} ), // подключение имитации модулей вместо настоящих (подключаемых по умолчанию)
-	{ // конфиг пользвателя
+	{ // конфиг пользователя
+//		'rabbit-server': starter.mock['rabbit-server'],
+//		rabbit: starter.mock.rabbit,
+//		flexo: starter.mock.flexo,
+//		view: starter.mock.view,
+//		controller: starter.mock.controller,
 		flexo_path: __dirname + '/../scheme/flexo',
 		link_path: __dirname + '/../scheme/link',
 		view_path: __dirname + '/../scheme/view',
@@ -27,13 +32,16 @@ var config = __.extend(
 
 
 exports.testInit = function( t ) {
-	t.expect( 8 );
+	catchAll( t );
+	t.expect( 9 );
+
 	starter.init( config, function( err, module, all ) {
 		t.ifError( err );
 
 		t.ok( module );
 		t.ok( all );
 		t.doesNotThrow( function() {
+			t.ok( all['rabbit-server'] );
 			t.ok( all.rabbit );
 			t.ok( all.flexo );
 			t.ok( all.view );
@@ -51,13 +59,39 @@ exports.testInit = function( t ) {
  */
 var t = {
 	expect: function( number ) { return number; },
-	ok: function( value, message ) { return value;},
-	deepEqual: function( actual, expected, message ) { return [actual, expected];},
-	notDeepEqual: function( actual, expected, message ) { return [actual, expected];},
-	strictEqual: function( actual, expected, message ) { return [actual, expected];},
-	notStrictEqual: function( actual, expected, message ) { return [actual, expected];},
-	throws: function( block, error, message ) { return block;},
-	doesNotThrow: function( block, error, message ) { return block;},
-	ifError: function( value ) { return value;},
+	ok: function( value, message ) {
+		if ( message ) {}
+		return value;
+	},
+	deepEqual: function( actual, expected, message ) {
+		if ( expected || message ) {}
+		return actual;
+	},
+	notDeepEqual: function( actual, expected, message ) {
+		if ( expected || message ) {}
+		return actual;
+	},
+	strictEqual: function( actual, expected, message ) {
+		if ( expected || message ) {}
+		return actual;
+	},
+	notStrictEqual: function( actual, expected, message ) {
+		if ( expected || message ) {}
+		return actual;
+	},
+	throws: function( block, error, message ) {
+		if ( error || message ) {}
+		return block;
+	},
+	doesNotThrow: function( block, error, message ) {
+		if ( error || message ) {}
+		return block;
+	},
+	ifError: function( value ) { return value; },
 	done: function() { return true;}
 };
+
+function catchAll( test ) {
+	process.removeAllListeners( 'uncaughtException' );
+	process.on( 'uncaughtException', test.done );
+}
