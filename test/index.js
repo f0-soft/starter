@@ -25,7 +25,7 @@ var config = __.extend(
 		flexo_path: __dirname + '/../scheme/flexo',
 		link_path: __dirname + '/../scheme/link',
 		view_path: __dirname + '/../scheme/view',
-		template_path: __dirname + '/../view/template'
+		template_path: __dirname + '/../view/tpl'
 	}
 );
 
