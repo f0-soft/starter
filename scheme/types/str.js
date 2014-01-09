@@ -1,6 +1,7 @@
 'use strict';
 
 var reopcode = require( './.lib.re-opcode' );
+var sanitizer = require( './.lib.sanitizer' );
 
 exports.name = 'str';
 exports.array = false;
@@ -9,7 +10,10 @@ exports.subtype = false;
 exports.default = function() { return ''; };
 exports.save = function( elem ) {
 	if ( elem === undefined || elem === null ) { return [ true, exports.default() ]; } // default value
-	return [ false, ( '' + elem ).trim() ];
+	elem = '' + elem;
+	elem = sanitizer.escape( elem );
+	elem = elem.trim();
+	return [ false, elem];
 };
 exports.read = undefined;
 exports.find = function( query ) {
