@@ -1,13 +1,13 @@
 'use strict';
 
-var tArray = require('./array');
+var tArray = require( './array' );
 
 exports.name = 'objarray';
 exports.array = true;
 exports.subtype = true;
 
 exports.default = function() { return []; };
-exports.save = function( elem, subtype ) {
+exports.save = function( elem, subtype, processor ) {
 	var keys, subresult, result, obj;
 
 	result = tArray.save( elem );
@@ -17,7 +17,7 @@ exports.save = function( elem, subtype ) {
 	for ( var i = 0; i < result[1].length; i += 1 ) {
 		obj = {};
 		for ( var j = 0; j < keys.length; j += 1 ) {
-			subresult = processToBase( result[1][i][ keys[j] ], subtype[ keys[j] ] ); //FIXME: вызов вне области видимости
+			subresult = processor( result[1][i][ keys[j] ], subtype[ keys[j] ].type );
 
 			if ( subresult[0] ) {
 				result[0] = subresult[0];
@@ -31,7 +31,7 @@ exports.save = function( elem, subtype ) {
 
 	return result;
 };
-exports.read = function( elem, subtype ) {
+exports.read = function( elem, subtype, processor ) {
 	var keys, subresult, result, obj;
 
 	result = tArray.read( elem );
@@ -41,7 +41,7 @@ exports.read = function( elem, subtype ) {
 	for ( var i = 0; i < result[1].length; i += 1 ) {
 		obj = {};
 		for ( var j = 0; j < keys.length; j += 1 ) {
-			subresult = processToUser( result[1][i][ keys[j] ], subtype[ keys[j] ] ); //FIXME: вызов вне области видимости
+			subresult = processor( result[1][i][ keys[j] ], subtype[ keys[j] ].type );
 
 			if ( subresult[0] ) {
 				result[0] = subresult[0];
@@ -55,4 +55,6 @@ exports.read = function( elem, subtype ) {
 
 	return result;
 };
-exports.find = undefined;
+exports.find = function( elem, subtype ) {
+	return [false, elem]; //FIXME: произвести проверку свойств вложенных объектов
+};
