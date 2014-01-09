@@ -6,7 +6,7 @@ exports.name = '_id';
 exports.array = false;
 exports.subtype = false;
 
-exports.default = undefined;
+exports.default = function() { return undefined; };
 exports.save = function( elem ) {
 	var str = tStr.save( elem );
 	if ( str[0] ) { return [ 'не удалось преобразовать к типу `_id`', str[1] ]; }

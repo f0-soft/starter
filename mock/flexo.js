@@ -91,6 +91,16 @@ checks.init = argstype.getChecker( myErr, [
 					]]
 				]]
 			]
+		]],
+		['types', true, 'o', [
+			'*', true, 'o', [
+				['array', false, 'b'],
+				['subtype', false, 'b'],
+				['default', true, 'f'],
+				['save', false, 'f'],
+				['read', false, 'f'],
+				['find', false, 'f']
+			]
 		]]
 	]],
 	['callback', true, 'f']
