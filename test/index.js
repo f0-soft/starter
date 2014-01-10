@@ -23,6 +23,7 @@ var config = __.extend(
 //		view: starter.mock.view,
 //		controller: starter.mock.controller,
 		flexo_path: __dirname + '/../scheme/flexo',
+		type_path: __dirname + '/../scheme/types',
 		link_path: __dirname + '/../scheme/link',
 		view_path: __dirname + '/../scheme/view',
 		template_path: __dirname + '/../view/tpl'
