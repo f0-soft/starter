@@ -1,6 +1,7 @@
 'use strict';
 
 var argstype = require( 'f0.argstype' );
+var next = require( 'nexttick' );
 
 
 
@@ -86,16 +87,16 @@ function init( config, callback ) {
 	var errType = checks.init( arguments );
 
 	if ( errType ) {
-		return process.nextTick( callback.bind( null, errType ) );
+		return next( callback, errType );
 	}
 
 	if ( INITIALIZED ) {
-		process.nextTick( callback.bind( null, myErr( 'Rabbit reinitialization prohibited' ) ) );
+		return next( callback, myErr( 'Rabbit reinitialization prohibited' ) );
 	}
 
 	INITIALIZED = true;
 
-	return process.nextTick( callback.bind( null, null, true ) );
+	return next( callback, null, true );
 }
 
 
@@ -108,14 +109,14 @@ function open( port, host, callback ) {
 	var errType = checks.init( arguments );
 
 	if ( errType ) {
-		return process.nextTick( callback.bind( null, errType ) );
+		return next( callback, errType );
 	}
 
 	if ( !INITIALIZED ) {
-		return process.nextTick( callback.bind( null, myErr( 'Rabbit еще не инициализирован' ) ) );
+		return next( callback, myErr( 'Rabbit еще не инициализирован' ) );
 	}
 
-	return process.nextTick( callback.bind( null, null, true ) );
+	return next( callback, null, true );
 }
 
 
@@ -127,10 +128,10 @@ function close( callback ) {
 	var errType = checks.close( arguments );
 
 	if ( errType ) {
-		return process.nextTick( callback.bind( null, errType ) );
+		return next( callback, errType );
 	}
 
-	return process.nextTick( callback.bind( null, null ) );
+	return next( callback, null );
 }
 
 module.exports = {

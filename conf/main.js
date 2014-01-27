@@ -4,6 +4,7 @@ module.exports = {
 	'rabbit-server': require( 'f0.rabbit-server' ),
 	rabbit: require( 'f0.rabbit' ),
 	flexo: require( 'f0.flexo' ),
+	'flexo-client': require( 'f0.flexo-client' ),
 	view: require( 'f0.view' ),
 	controller: require( 'f0.controller' ),
 
@@ -21,5 +22,8 @@ module.exports = {
 		port: 6379
 	},
 
-	collection_alias: {}
+	collection_alias: {},
+
+	flexo_host: 'localhost',
+	flexo_port: 35396
 };

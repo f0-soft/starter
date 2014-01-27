@@ -1,6 +1,7 @@
 'use strict';
 
 var argstype = require( 'f0.argstype' );
+var next = require( 'nexttick' );
 
 
 
@@ -94,15 +95,15 @@ function init( options, callback ) {
 	var errType = checks.init( arguments );
 
 	if ( errType ) {
-		return process.nextTick( callback.bind( null, errType ) );
+		return next( callback, errType );
 	}
 
 	if ( INITIALIZED ) {
-		return process.nextTick( callback.bind( null, myErr( 'double initialization' ) ) );
+		return next( callback, myErr( 'double initialization' ) );
 	}
 
 	INITIALIZED = true;
-	return process.nextTick( callback.bind( null, null, container ) );
+	return next( callback, null, container );
 }
 
 module.exports = {

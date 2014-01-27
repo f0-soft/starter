@@ -1,6 +1,7 @@
 'use strict';
 
 var argstype = require( 'f0.argstype' );
+var next = require( 'nexttick' );
 
 
 
@@ -24,14 +25,16 @@ function init( config, callback ) {
 	var errType = checks.init( arguments );
 
 	if ( errType ) {
-		return process.nextTick( callback.bind( null, errType ) );
+		return next( callback, errType );
 	}
 
-	if ( INITIALIZED ) { callback( myErr( 'Rabbit reinitialization prohibited' ) ); }
+	if ( INITIALIZED ) {
+		return next( callback, myErr( 'Rabbit reinitialization prohibited' ) );
+	}
 
 	INITIALIZED = true;
 
-	return process.nextTick( callback.bind( null, null, true ) );
+	return next( callback, null, true );
 }
 
 module.exports = {

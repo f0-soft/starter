@@ -25,10 +25,12 @@
 
 	"dependencies": {
 		"async": "",
+		"nexttick": "",
 		"f0.argstype": "git+ssh://git@github.com:f0-soft/argstype.git",
 		"f0.rabbit-server": "git+ssh://git@github.com:f0-soft/rabbit-server.git",
 		"f0.rabbit": "git+ssh://git@github.com:f0-soft/rabbit.git",
 		"f0.flexo": "git+ssh://git@github.com:f0-soft/flexo.git",
+		"f0.flexo-client": "git+ssh://git@github.com:f0-soft/flexo-client.git",
 		"f0.view": "git+ssh://git@github.com:f0-soft/view.git",
 		"f0.controller": "git+ssh://git@github.com:f0-soft/controller.git",
 		"sanitizer": ""

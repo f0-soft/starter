@@ -1,6 +1,7 @@
 'use strict';
 
 var argstype = require( 'f0.argstype' );
+var next = require( 'nexttick' );
 
 
 
@@ -17,28 +18,6 @@ var checks = {};
 function myErr( text ) {
 	return ( new Error( 'f0.starter.mock.flexo: ' + text ));
 }
-
-
-
-var TYPES = {
-	str: true,
-	words: true,
-	int: true,
-	float: true,
-	bool: true,
-	array: true,
-	id: true,
-	ids: true,
-	idpath: true,
-	numeric: true,
-	phone: true
-};
-var ARRAYS = {
-	words: true,
-	array: true,
-	ids: true,
-	idpath: true
-};
 
 
 
@@ -101,6 +80,10 @@ checks.init = argstype.getChecker( myErr, [
 				['read', false, 'f'],
 				['find', false, 'f']
 			]
+		]],
+		['hook_timeout', false, 'n'],
+		['server', true, 'o', [
+			['port', true, 'n']
 		]]
 	]],
 	['callback', true, 'f']
@@ -109,19 +92,19 @@ function init( options, callback ) {
 	var errType = checks.init( arguments );
 
 	if ( errType ) {
-		return process.nextTick( callback.bind( null, errType ) );
+		return next( callback, errType );
 	}
 
-	if ( INITIALIZED ) { callback( myErr( 'Flexo reinitialization prohibited' ) ); }
+	if ( INITIALIZED ) {
+		return next( callback, myErr( 'Flexo reinitialization prohibited' ) );
+	}
 
 	INITIALIZED = true;
 
-	return process.nextTick( callback.bind( null, null, container ) );
+	return next( callback, null, container );
 }
 
 module.exports = {
 	init: init,
-	checks: checks,
-	types: TYPES,
-	arrays: ARRAYS
+	checks: checks
 };
