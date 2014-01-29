@@ -36,7 +36,12 @@ checks.init = argstype.getChecker( myErr, [
 					['name', true, 's'],
 					['root', true, 'o', [
 						'*', true, 'o', [
-							['type', true, 's'],
+							['type', false, 's'],
+							['subtype', false, 'o', [
+								'*', true, 'o', [
+									['type', true, 's']
+								]
+							]],
 							['from', false, 's'],
 							['link', false, 's']
 						]
@@ -63,9 +68,8 @@ checks.init = argstype.getChecker( myErr, [
 					['types', true, 'o', [
 						'*', true, 'o', [
 							['type', true, 's'],
-							['of', false, 's'],
 							['from', false, 's'],
-							['inline', false, 's']
+							['link', false, 's']
 						]
 					]]
 				]]
