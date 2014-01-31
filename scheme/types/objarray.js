@@ -6,7 +6,7 @@ exports.name = 'objarray';
 exports.array = true;
 exports.subtype = true;
 
-exports.default = function() { return []; };
+exports.default = tArray.default;
 exports.save = function( elem, subtype, processor ) {
 	var keys, subresult, result, obj;
 

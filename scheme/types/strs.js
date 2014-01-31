@@ -7,9 +7,9 @@ exports.name = 'strs';
 exports.array = true;
 exports.subtype = false;
 
-exports.default = function() { return []; };
+exports.default = tArray.default;
 exports.save = function( elem ) {
-	var arr = tArray( elem );
+	var arr = tArray.save( elem );
 	if ( arr[0] ) { return [ 'не удалось преобразовать к типу `strs`', arr[1] ]; }
 	if ( !arr[1].length ) { return [ false, exports.default() ]; } // default value
 	for ( var i = 0; i < arr[1].length; i += 1 ) {
